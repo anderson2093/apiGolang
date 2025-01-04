@@ -1,6 +1,7 @@
 package main
 
 import (
+	_ "github.com/anderson2093/apiGolang/cmd/docs"
 	"github.com/anderson2093/apiGolang/config"
 	"github.com/anderson2093/apiGolang/interfaces/controllers"
 	"github.com/anderson2093/apiGolang/interfaces/repositories"
@@ -21,7 +22,7 @@ import (
 // @contact.email support@swagger.io
 
 // @host localhost:8080
-// @BasePath /api/v1
+// @BasePath /
 func main() {
 	// Conectar a la base de datos
 	config.ConnectDatabase()
@@ -36,7 +37,7 @@ func main() {
 	router := gin.Default()
 
 	// Ruta Swagger
-	router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerfiles.Handler))
+	router.GET("/swagger-ui/*any", ginSwagger.WrapHandler(swaggerfiles.Handler))
 
 	// Registra las rutas de la API
 	routes.RegisterRoutes(router, controller)
