@@ -1,0 +1,8 @@
+# Archivos de Go
+bin/
+*.exe
+*.log
+
+# Configuración
+.env
+" 
