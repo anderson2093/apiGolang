@@ -4,7 +4,7 @@ import (
 	"context"
 	"net/http"
 
-	"github.com/anderson2093/apiGolang/domain/models"
+	"github.com/anderson2093/apiGolang/dto/request"
 	"github.com/anderson2093/apiGolang/mapper"
 	"github.com/anderson2093/apiGolang/usecase"
 	"github.com/gin-gonic/gin"
@@ -29,11 +29,12 @@ func NewCategoryController(u *usecase.CategoryUsecase) *CategoryController {
 // @Failure 500 {object} models.ErrorResponse
 // @Router /categories [post]
 func (ctrl *CategoryController) CreateCategory(c *gin.Context) {
-	var category models.Category
-	if err := c.ShouldBindJSON(&category); err != nil {
+	var categoryRequest request.CategoryRequestDto
+	if err := c.ShouldBindJSON(&categoryRequest); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
+	category := mapper.ToCategory(categoryRequest)
 
 	err := ctrl.usecase.CreateCategory(context.Background(), &category)
 	if err != nil {
