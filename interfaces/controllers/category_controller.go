@@ -5,6 +5,7 @@ import (
 	"net/http"
 
 	"github.com/anderson2093/apiGolang/domain/models"
+	"github.com/anderson2093/apiGolang/mapper"
 	"github.com/anderson2093/apiGolang/usecase"
 	"github.com/gin-gonic/gin"
 )
@@ -48,7 +49,7 @@ func (ctrl *CategoryController) CreateCategory(c *gin.Context) {
 // @Tags Categorías
 // @Accept json
 // @Produce json
-// @Success 200 {array} models.Category
+// @Success 200 {array} response.CategoryResponseDto
 // @Failure 400 {object} models.ErrorResponse
 // @Router /categories [get]
 func (ctrl *CategoryController) GetCategories(c *gin.Context) {
@@ -58,7 +59,10 @@ func (ctrl *CategoryController) GetCategories(c *gin.Context) {
 		return
 	}
 
-	c.JSON(http.StatusOK, categories)
+	//Mapea las categorías a DTOS antes de devolver la respuesta
+	categoryDTOs := mapper.ToCategoryListResponse(categories)
+
+	c.JSON(http.StatusOK, categoryDTOs)
 }
 
 // Similar para GetCategoryByID y DeleteCategory...
