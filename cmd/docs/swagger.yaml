@@ -19,6 +19,15 @@ definitions:
       message:
         type: string
     type: object
+  response.CategoryResponseDto:
+    properties:
+      description:
+        type: string
+      id:
+        type: string
+      name:
+        type: string
+    type: object
 host: localhost:8080
 info:
   contact:
@@ -42,7 +51,7 @@ paths:
           description: OK
           schema:
             items:
-              $ref: '#/definitions/models.Category'
+              $ref: '#/definitions/response.CategoryResponseDto'
             type: array
         "400":
           description: Bad Request
