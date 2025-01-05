@@ -1,24 +1,4 @@
 basePath: /
-definitions:
-  models.Category:
-    properties:
-      description:
-        example: Categoría de pantalones de vestir y casual
-        type: string
-      id:
-        example: 67791e1d1b8af760b0149bb5
-        type: string
-      name:
-        example: Pantalones
-        type: string
-    required:
-    - name
-    type: object
-  models.ErrorResponse:
-    properties:
-      message:
-        type: string
-    type: object
 host: localhost:8080
 info:
   contact:
@@ -29,55 +9,5 @@ info:
   termsOfService: http://swagger.io/terms/
   title: Categories API
   version: "1.0"
-paths:
-  /categories:
-    get:
-      consumes:
-      - application/json
-      description: Obtener todas las categorías disponibles en la tienda
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            items:
-              $ref: '#/definitions/models.Category'
-            type: array
-        "400":
-          description: Bad Request
-          schema:
-            $ref: '#/definitions/models.ErrorResponse'
-      summary: Obtener todas las categorías
-      tags:
-      - Categorías
-    post:
-      consumes:
-      - application/json
-      description: Crea una nueva categoría en la tienda virtual
-      parameters:
-      - description: Detalles de la categoría
-        in: body
-        name: category
-        required: true
-        schema:
-          $ref: '#/definitions/models.Category'
-      produces:
-      - application/json
-      responses:
-        "201":
-          description: Created
-          schema:
-            $ref: '#/definitions/models.Category'
-        "400":
-          description: Bad Request
-          schema:
-            $ref: '#/definitions/models.ErrorResponse'
-        "500":
-          description: Internal Server Error
-          schema:
-            $ref: '#/definitions/models.ErrorResponse'
-      summary: Crear una nueva categoría
-      tags:
-      - Categorías
+paths: {}
 swagger: "2.0"

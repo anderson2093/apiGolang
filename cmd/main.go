@@ -37,7 +37,7 @@ func main() {
 	router := gin.Default()
 
 	// Ruta Swagger
-	router.GET("/swagger-ui/*any", ginSwagger.WrapHandler(swaggerfiles.Handler))
+	router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerfiles.Handler))
 
 	// Registra las rutas de la API
 	routes.RegisterRoutes(router, controller)
