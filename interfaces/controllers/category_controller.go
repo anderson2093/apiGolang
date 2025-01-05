@@ -23,7 +23,7 @@ func NewCategoryController(u *usecase.CategoryUsecase) *CategoryController {
 // @Tags Categorías
 // @Accept json
 // @Produce json
-// @Param category body models.Category true "Detalles de la categoría"
+// @Param category body request.CategoryRequestDto true "Detalles de la categoría"
 // @Success 201 {object} models.Category
 // @Failure 400 {object} models.ErrorResponse
 // @Failure 500 {object} models.ErrorResponse
