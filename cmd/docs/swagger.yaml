@@ -19,6 +19,13 @@ definitions:
       message:
         type: string
     type: object
+  request.CategoryRequestDto:
+    properties:
+      description:
+        type: string
+      name:
+        type: string
+    type: object
   response.CategoryResponseDto:
     properties:
       description:
@@ -70,7 +77,7 @@ paths:
         name: category
         required: true
         schema:
-          $ref: '#/definitions/models.Category'
+          $ref: '#/definitions/request.CategoryRequestDto'
       produces:
       - application/json
       responses:

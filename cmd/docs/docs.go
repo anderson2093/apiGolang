@@ -70,7 +70,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/models.Category"
+                            "$ref": "#/definitions/request.CategoryRequestDto"
                         }
                     }
                 ],
@@ -122,6 +122,17 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "request.CategoryRequestDto": {
+            "type": "object",
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "name": {
                     "type": "string"
                 }
             }
