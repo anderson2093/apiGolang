@@ -1,0 +1,66 @@
+# FashionDesignApp
+
+FashionDesignApp es una aplicación móvil que permite a los diseñadores de moda ofrecer sus servicios de diseño de prendas de vestir y accesorios. Los clientes pueden contratar a diseñadores, seleccionar modelos 3D, telas, colores y estampados, y recibir propuestas antes de realizar un pago.
+
+## Características
+
+- **Registro de Usuarios**: Los usuarios pueden registrarse como clientes o diseñadores.
+- **Servicios de Diseño**: Los diseñadores pueden ofrecer servicios de diseño de prendas y accesorios.
+- **Seleccionar Modelos 3D**: Los clientes pueden seleccionar modelos 3D, telas, colores y estampados.
+- **Generación de Propuestas**: Los diseñadores pueden enviar propuestas a los clientes utilizando modelos 3D.
+- **Gestión de Archivos**: Gestión de fichas técnicas, tizados y moldes digitales.
+- **Pagos en la Aplicación**: Los clientes pueden realizar pagos por los servicios contratados.
+
+## Estructura del Proyecto
+
+FashionDesignApp/
+├── cmd/
+│   └── main.go
+├── config/
+│   └── config.go
+├── domain/
+│   ├── models/
+|   |   |── categoría.go
+│   │   ├── usuario.go
+│   │   ├── servicio.go
+│   │   ├── pagos.go
+│   │   ├── fichatecnica.go
+│   │   ├── tizado.go
+│   │   ├── moldedigital.go
+│   │   └── modelo3d.go
+│   ├── repositories/
+│   │   ├── category.go
+│   │   └── category_repository.go
+├── interfaces/
+│   ├── controllers/
+│   │   └── category_controller.go
+│   └── repositories/
+│       └── category_repository.go
+├── README.md
+└── go.mod
+## Configuración
+
+1. **Clonar el repositorio**
+    ```sh
+    git clone https://github.com/yourusername/FashionDesignApp.git
+    cd FashionDesignApp
+    ```
+
+2. **Configurar la base de datos**
+    - Asegúrate de tener MongoDB instalado y en ejecución.
+    - Configura las credenciales de tu base de datos en el archivo `config/config.go`.
+
+3. **Instalar las dependencias**
+    ```sh
+    go mod tidy
+    ```
+
+## Ejecución
+
+Para iniciar el servidor:
+```sh
+go run cmd/main.go
+
+El servidor se ejecutará en http://localhost:8080.
+
+
